@@ -1,2 +1,32 @@
-<angular-reauth-demo-nx-welcome></angular-reauth-demo-nx-welcome>
-<router-outlet></router-outlet>
+<h1>REAUTH DEMO</h1>
+
+<h2>DATA</h2>
+<p>Current Token: {{ apiService.accessToken$ | async }}</p>
+<p>Refreshing Tokens? {{ apiService.refreshingTokens$ | async }}</p>
+<p>Content: {{ content }}</p>
+
+<p *ngIf="contentLoading">CONTENT LOADING...</p>
+<p *ngIf="tokenLoading">TOKEN LOADING...</p>
+
+<label for="token-id">TOKEN ID:</label>
+<input id="token-id" [(ngModel)]="tokenId">
+
+<br />
+
+<button type="button" (click)="getToken()">GET NEW TOKEN</button>
+<button type="button" (click)="getContent()">GET CONTENT</button>
+<button type="button" (click)="multipleGetContent()">MULTIPLE GET CONTENT</button>
+
+<br />
+
+<ul>
+  <li>Send "refreshToken" to get a good access token, that will succeed all requests</li>
+  <li>Send "badRefreshToken" to get a token that is unauthenticated (401 Unauthorized Scenario)</li>
+  <li>Send anything else to get a token that is good, but does not have all permissions (403 Forbidden Scenario)</li>
+</ul>
+
+<ul>
+  <li>Click the "Get New Token" button to submit your token ID to simulate the request to get a new OAuth token</li>
+  <li>Click the "Get Content" button to simulate a content request that requires a good token</li>
+  <li>Click the "Multiple Get Content" button to simulate multiple simultaneous content requests, the app will only make one 401 retry in this case, and other requests will wait for a new token</li>
+</ul>

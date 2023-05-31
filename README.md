@@ -6,7 +6,13 @@
 
 ## Development server
 
-Run `nx serve angular-reauth-demo` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+### Angular App
+
+Run `npx nx serve angular-reauth-demo` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+
+### Auth API Server
+
+Run `npx nx serve auth-api` to run the demo server.
 
 ## Understand this workspace
 

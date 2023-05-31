@@ -56,7 +56,8 @@
           "browserTarget": "angular-reauth-demo:build:production"
         },
         "development": {
-          "browserTarget": "angular-reauth-demo:build:development"
+          "browserTarget": "angular-reauth-demo:build:development",
+          "proxyConfig": "proxy.conf.json"
         }
       },
       "defaultConfiguration": "development"
